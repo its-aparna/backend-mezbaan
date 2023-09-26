@@ -24,6 +24,12 @@ app.use(express.static(publicPath));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
+
+app.get("/",(req,res)=>{
+  res.setHeader("Access-Control-Allow-Credential",true);
+  res.setHeader("Access-Control-Allow-Origin:*");
+})
+
 app.use("/restaurant",restRouter);
 app.use("/admin",AdminRouter);
 app.use("/plan",PlanRouter);
