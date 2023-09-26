@@ -3,7 +3,6 @@ import restRouter from "./routes/restaurant.route.js";
 import path from 'path';
 import { fileURLToPath } from "url";
 import { Colony } from "./models/colonies.model.js";
-
 import AdminRouter from "./routes/admin.route.js";
 import PlanRouter from "./routes/plan.route.js";
 import BookingRouter from "./routes/booking.route.js";
@@ -26,18 +25,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 app.use("/restaurant",restRouter);
-
-
 app.use("/admin",AdminRouter);
 app.use("/plan",PlanRouter);
 app.use("/booking",BookingRouter);
-  
 app.use("/customer",customerRouter);
 app.use("/review",reviewRouter);
-
-
 app.use("/payment",PaymentRouter);
-
 app.use("/visit",VisitRouter);
 
 app.get('/image/:filename', function (req, res) {
